@@ -1,7 +1,11 @@
 package org.Mahmoud;
 
 public class Util {
-
+    /**
+     * Converts each word in a string to title case.
+     * @param str the input string to be converted.
+     * @return the string to be converted to title case (first letter uppercase, rest lowercase).
+     */
     public static String toTitleCase(String str) {
         if (str == null  || str.isEmpty()) {
             return str;
