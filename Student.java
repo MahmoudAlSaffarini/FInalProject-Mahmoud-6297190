@@ -3,15 +3,12 @@ package org.Mahmoud;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
 public class Student {
 
     private String studentId;
@@ -35,9 +32,9 @@ public class Student {
     }
 
     /**
-     *
-     * @param course
-     * @return
+     * Checks if a course is registered for the student before adding it.
+     * @param course the course to be registered.
+     * @return true if the course will be registered, false if it was already registered.
      */
     public boolean registerCourse(Course course) {
         if (registeredCourses.contains(course)) {
@@ -45,13 +42,15 @@ public class Student {
         }
         registeredCourses.add(course);
 
+        //course.registerStudent(this);
+
         return true;
     }
 
     /**
-     *
-     * @param course
-     * @return
+     * Drops and removes the student from the course if they exist in the list.
+     * @param course the course to be dropped.
+     * @return true if the course was successfully dropped, false if the student is not registered.
      */
     public boolean dropCourse(Course course) {
         if (!registeredCourses.contains(course)) {
@@ -59,18 +58,42 @@ public class Student {
         }
         registeredCourses.remove(course);
 
+        // course.removeStudent(this);
+
         return true;
     }
 
     /**
-     *
-     * @return
+     * Converts a student to a simple string.
+     * @return a simple string containing the studentId, studentName, and departmentName.
      */
     public String toSimplifiedString() {
-        return String.format("%s %s %s", gender, address, department);
+        return String.format("%s %s %s", studentId, studentName, department.getDepartmentName());
     }
 
     public void setStudentName(String studentName) {
         this.studentName = Util.toTitleCase(studentName);
+    }
+
+    @Override
+    public String toString() {
+        String coursesString = "[";
+
+        for (Course course : registeredCourses) {
+            coursesString += course.toString() + ", ";
+        }
+        if (registeredCourses.size() > 0) {
+            coursesString = coursesString.substring(0, coursesString.length() - 2);
+        }
+        coursesString += "]";
+
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", gender=" + gender +
+                ", address=" + address +
+                ", department=" + department +
+                ", registeredCourses=" + coursesString +
+                '}';
     }
 }
