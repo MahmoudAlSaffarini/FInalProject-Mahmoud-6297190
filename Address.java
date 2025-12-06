@@ -13,6 +13,7 @@ public class Address {
     private String city;
     private Province province;
     private String postalCode;
+
     /**
      * Checks if postalCode is valid using the CDCDCD format.
      * @param postalCode the input postal code.
