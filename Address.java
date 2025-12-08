@@ -30,11 +30,11 @@ public class Address {
             char ch = postalCode.charAt(i);
 
             if (i % 2 == 0) {
-                if (!Character.isLetter(ch)) {
+                if (!(ch >= 'A'  && ch <= 'Z')) {
                     return false;
                 }
             } else {
-                if (!Character.isDigit(ch)) {
+                if (!(ch >= '0' && ch <= '9')) {
                     return false;
                 }
             }
