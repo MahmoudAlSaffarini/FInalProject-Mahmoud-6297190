@@ -11,8 +11,6 @@ public enum Province {
     NB,
     NL,
     NS,
-    ON,
-    PE,
-    QC,
-    SK
+    PEI,
+    NL
 }
