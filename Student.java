@@ -58,7 +58,7 @@ public class Student {
         }
         registeredCourses.remove(course);
 
-           course.removeStudent(this);
+        course.getRegisteredStudents().remove(this);
 
         return true;
     }
@@ -80,7 +80,7 @@ public class Student {
         String coursesString = "[";
 
         for (Course course : registeredCourses) {
-            coursesString += course.toString() + ", ";
+            coursesString += course.toSimplifiedString() + ", ";
         }
         if (registeredCourses.size() > 0) {
             coursesString = coursesString.substring(0, coursesString.length() - 2);
