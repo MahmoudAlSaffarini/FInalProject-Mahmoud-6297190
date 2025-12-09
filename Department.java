@@ -17,7 +17,6 @@ public class Department {
 
     /**
      * Checks if a department name is valid.
-     *
      * @param departmentName the input department name to validate.
      * @return true if the department name contains only letters or spaces, else false.
      */
