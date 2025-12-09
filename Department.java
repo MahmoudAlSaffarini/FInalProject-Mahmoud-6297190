@@ -29,7 +29,7 @@ public class Department {
         for (int i = 0; i < departmentName.length(); i++) {
             char ch = departmentName.charAt(i);
 
-            if (!Character.isLetter(ch) && ch != ' ') {
+            if (!((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch == ' '))) {
                 return false;
             }
         }
