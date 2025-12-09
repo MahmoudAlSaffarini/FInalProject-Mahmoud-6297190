@@ -42,7 +42,7 @@ public class Student {
         }
         registeredCourses.add(course);
 
-           course.registerStudent(this);
+        course.registerStudent(this);
 
         return true;
     }
